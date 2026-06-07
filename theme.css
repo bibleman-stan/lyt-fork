@@ -757,7 +757,9 @@ body.theme-dark {
     --accent-l: 61%;
 
     /* Backgrounds */
-    --background-primary: var(--color-gray-90);
+    /* fork: darker, less-washed content BG (was var(--color-gray-90) = hsl(225,12%,20%));
+       nudged toward VS Code's neutral near-black */
+    --background-primary: hsl(222, 9%, 15%);
     --background-primary-alt: var(--color-gray-100);
     --background-secondary: var(--color-black);
     --background-modifier-hover: transparent;
