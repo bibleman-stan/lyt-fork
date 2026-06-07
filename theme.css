@@ -2615,6 +2615,24 @@ span.frontmatter-section-label {
     color: var(--color-gray-30);
 }
 
+/*─────────Settings Sidebar Search──────────*/
+/* Obsidian 1.8+ added a search box at the top of the Settings
+   sidebar. LYT Mode 1.9.1 (2023) predates it and never sized it,
+   so its input text + magnifier icon render hugely. Pin both to
+   normal UI sizes. Scoped to the settings modal only. */
+.modal.mod-settings .vertical-tab-header input,
+.modal.mod-settings .search-input-container input,
+.modal.mod-settings input[type="search"] {
+    font-size: var(--font-ui-medium) !important;
+    line-height: normal !important;
+    height: auto !important;
+}
+
+.modal.mod-settings .search-input-container .svg-icon {
+    width: var(--icon-s) !important;
+    height: var(--icon-s) !important;
+}
+
 /*─────────Command, Quick Switcher etc. Modals──────────*/
 
 .prompt {
