@@ -2617,22 +2617,25 @@ span.frontmatter-section-label {
     color: var(--color-gray-30);
 }
 
-/*─────────Settings Sidebar Search──────────*/
-/* Obsidian 1.8+ added a search box at the top of the Settings
-   sidebar. LYT Mode 1.9.1 (2023) predates it and never sized it,
-   so its input text + magnifier icon render hugely. Pin both to
-   normal UI sizes. Scoped to the settings modal only. */
-.modal.mod-settings .vertical-tab-header input,
-.modal.mod-settings .search-input-container input,
-.modal.mod-settings input[type="search"] {
+/*─────────Settings & Plugin Search Inputs──────────*/
+/* Obsidian 1.8+ search inputs (settings sidebar search, AND the search
+   boxes inside plugin settings panes, hotkeys, community plugins, etc.)
+   render with markup LYT's type-based input rules don't catch, so their
+   text + magnifier icon blow up to ~700%. Root-cause fix: size EVERY
+   input inside the settings modal regardless of type/container, plus any
+   search-input-container app-wide. Pins icon size too. */
+.modal.mod-settings input,
+.search-input-container input {
     font-size: var(--font-ui-medium) !important;
     line-height: normal !important;
     height: auto !important;
 }
 
-.modal.mod-settings .search-input-container .svg-icon {
+.modal.mod-settings .search-input-container .svg-icon,
+.modal.mod-settings .search-input-container::before {
     width: var(--icon-s) !important;
     height: var(--icon-s) !important;
+    font-size: var(--icon-s) !important;
 }
 
 /*─────────Command, Quick Switcher etc. Modals──────────*/
