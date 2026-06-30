@@ -12,6 +12,13 @@ Stan's (GitHub: `bibleman-stan`) personal maintained fork of the abandoned **LYT
 - **Canonical repo:** `C:\Users\bibleman\repos\lyt-fork`. A throwaway clone at `C:\Users\bibleman\work\lyt-fork` exists — ignore/delete it; never commit there.
 - **Remotes:** `origin` = `bibleman-stan/lyt-fork` (push/pull here). `upstream` = `nickmilo/LYT-Mode` with **push disabled** (`git pull upstream main` only if it ever revives). SSH auth, no `gh` CLI.
 
+## Navigating theme.css (by landmark, not line — they shift)
+- **Table of contents** at the very top lists every named section.
+- **Color palette / HSL ramps:** search `Cybertron Color Palette` — `--color-base-*`, `--color-gray-*` (gray-90 = content BG), `--color-black` (workspace BG), `--color-blacker`.
+- **Dark-mode variable mappings:** the `body.theme-dark {` block — `--background-primary` (set directly to `hsl(222,9%,15%)` in this fork), `--background-secondary`, text/interactive colors.
+- **Input/search sizing:** `Search Input Component` section (type-based rules — the fragile ones) + `Settings & Plugin Search Inputs` block (the class-level fix).
+- **Modals:** `Settings Modal`, `Command, Quick Switcher` sections.
+
 ## WHY LYT breaks (the core principle)
 LYT **hardcodes structural CSS** — fixed font-sizes, paddings, type-based selectors (`input[type='text']`) — instead of riding Obsidian's CSS-variable system. Obsidian's philosophy since 1.0: "themes set *variables* (`--background-primary`, `--font-ui-medium`…), Obsidian's own CSS handles structure." Variable-driven themes barely break; hardcoded ones break whenever Obsidian restructures a component or adds a surface the 2023 theme never styled (settings search, Properties view 1.4, Bases 1.9, tab/sidebar redesigns).
 
